@@ -1,22 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
-import SideNav from './SideNav';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import About from './pages/About';
-import Setting from './pages/Setting';
-import Home from './pages/Home';
+import { Button } from '@mui/material';
+import { makeStyles } from '@mui/styles'; // Correct import
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    color: "white",
+    backgroundColor: theme.palette.primary.main // Updated for MUI's theme usage
+  }
+}));
 
 function App() {
+  const classes = useStyles();
   return (
     <>
-    <BrowserRouter>
-    <SideNav></SideNav>
-      <Routes>
-        <Route path='/' exact element={<Home/>} ></Route>
-        <Route path='/about' exact element={<About/>}></Route>
-        <Route path='/setting' exact element={<Setting/>}></Route>
-      </Routes>
-    </BrowserRouter>
+      <Button className={classes.button}>Button</Button>
     </>
   );
 }
